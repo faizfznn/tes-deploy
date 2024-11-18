@@ -210,6 +210,10 @@ nav {
     border-radius: 100%;
     cursor: pointer;
     transition: 0.3s;
+    position: relative;
+    /* Atur posisi tombol relatif */
+    top: -10px;
+    /* Gerakkan tombol ke atas */
 }
 
 .booking__container .btn:hover {
