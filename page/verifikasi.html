@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../style/verifikasi.css" />
+    <title>Verifikasi Peminjaman | FILKOMreserV</title>
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="../assets/LOGO.png" alt="Logo FILKOMreserV">
+        <ul class="nav__links">
+            <li class="link"><a href="index.html">Beranda</a></li>
+            <li class="link"><a href="#footer">Kontak Kami</a></li>
+        </ul>
+    </nav>
+
+    <main class="section__container">
+        <div class="verifikasi__container">
+            <h1>Verifikasi Peminjaman</h1>
+            <p>Unggah berkas pendukung untuk melanjutkan proses verifikasi peminjaman ruangan.</p>
+            <form class="verifikasi__form">
+                <div class="form-group">
+                    <label for="fileUpload">Unggah Berkas Pendukung:</label>
+                    <input type="file" id="fileUpload" name="fileUpload" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi Berkas:</label>
+                    <textarea id="deskripsi" name="deskripsi" rows="4" class="form-control" placeholder="Masukkan deskripsi berkas"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Kirim Berkas</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="footer__bar">
+            Copyright © 2024 FILKOMreserV.
+        </div>
+    </footer>
+</body>
+
+</html>

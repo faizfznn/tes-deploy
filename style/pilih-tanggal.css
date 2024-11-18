@@ -1,0 +1,114 @@
+:root {
+    --primary-color: #2c3855;
+    --secondary-color: #435681;
+    --text-dark: #333333;
+    --text-light: #767268;
+    --white: #ffffff;
+    --background-light: #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.link a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.section__container {
+    max-width: 800px;
+    margin: auto;
+    padding: 3rem 1rem;
+}
+
+.tanggal__container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.tanggal__container h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tanggal__container p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.tanggal__form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.tanggal__form label {
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.tanggal__form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.tanggal__form button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tanggal__form button:hover {
+    background-color: var(--secondary-color);
+}
+
+.footer {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    text-align: center;
+    color: var(--white);
+}
