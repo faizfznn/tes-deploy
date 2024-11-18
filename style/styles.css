@@ -9,6 +9,78 @@
     --max-width: 1200px;
 }
 
+.popular__description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Membuat teks saling berjauhan */
+}
+
+.popular__description p {
+    margin: 0;
+    /* Menghapus margin default */
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.popular__description .lebih__lanjut {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--primary-color);
+    /* Warna background */
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.fasilitas__container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--background-light);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fasilitas__container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.fasilitas__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.fasilitas__list li {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fasilitas__list li i {
+    color: var(--primary-color);
+}
+
+.popular__description .lebih__lanjut:hover {
+    background-color: var(--primary-color-dark);
+}
+
 .gkm1 {
     width: 700px;
     height: 210px;
