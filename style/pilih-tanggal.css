@@ -176,12 +176,6 @@ nav {
     width: 150px;
 } */
 
-.section__container {
-    max-width: 800px;
-    margin: auto;
-    padding: 3rem 1rem;
-}
-
 .tanggal__container {
     background-color: var(--white);
     padding: 2rem;
@@ -304,10 +298,16 @@ nav {
     background-color: var(--text-light);
 }
 
-.section__container {
+footer .section__container {
     max-width: var(--max-width);
     margin: auto;
     padding: 5rem 1rem;
+}
+
+main.section__container {
+    max-width: 800px;
+    margin: auto;
+    padding: 3rem 1rem;
 }
 
 .footer__container {
