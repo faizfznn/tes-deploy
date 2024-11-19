@@ -112,6 +112,12 @@
 
 .logo {
     width: 10%;
+    margin-top: -15px;
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 * {
@@ -380,13 +386,13 @@ nav {
 }
 
 .reward__btn {
-    padding: 1rem 3rem;
+    padding: 0.9rem 3rem;
     outline: none;
     border: none;
     font-size: 1rem;
     color: var(--white);
     background-color: var(--primary-color);
-    border-radius: 1rem;
+    border-radius: 1.2rem;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -420,6 +426,13 @@ nav {
 }
 
 .footer__col p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer__col ul {
     margin-bottom: 1rem;
     color: var(--text-light);
     cursor: pointer;
