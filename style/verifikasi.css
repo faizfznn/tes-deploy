@@ -166,6 +166,7 @@ body {
 .logo {
     width: 10%;
     margin-top: -15px;
+    cursor: pointer;
 }
 
 .link a {

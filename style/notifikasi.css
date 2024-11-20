@@ -200,6 +200,7 @@ html {
 .logo {
     width: 10%;
     margin-top: -15px;
+    cursor: pointer;
 }
 
 @media (width < 600px) {
