@@ -35,6 +35,33 @@
     transition: background-color 0.3s;
 }
 
+.scroll-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    /* Tombol hanya muncul ketika user scroll */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.scroll-to-top i {
+    margin: 0;
+}
+
 .fasilitas__container {
     margin-top: 2rem;
     padding: 2rem;

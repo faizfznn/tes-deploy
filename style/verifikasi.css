@@ -74,6 +74,10 @@
     background-color: var(--text-light);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 
 /* BIKIN LEBIH kecil, footer salah tp konten bener */
 

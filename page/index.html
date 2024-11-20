@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" id="top">
 
 <head>
     <meta charset="UTF-8" />
@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/styles.css" />
     <link rel="icon" type="image/png" href="../assets/LOGO.png">
+    <script src="../script/verifikasi.js"></script>
+
     <!-- <script src="../script/verifikasi.js"></script> -->
 
     <title>FILKOMreserV | Sistem Peminjaman Ruangan</title>
@@ -68,7 +70,7 @@
                         <p>Tentukan jumlah orang</p>
                     </div>
                 </form>
-                <button class="btn"><i class="ri-search-line"></i></button>
+                <button class="btn"><i class="ri-search-line" onclick="window.location.href='list.html'"></i></button>
             </div>
         </div>
     </header>
@@ -198,7 +200,23 @@
         <div class="footer__bar">
             Copyright © 2024 FILKOMreserV.
         </div>
+        <a href="#top" class="scroll-to-top" aria-label="Scroll to top">
+            <i class="ri-arrow-up-s-line"></i>
+        </a>
+        <script>
+            // Menampilkan tombol ketika halaman di-scroll ke bawah
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 2000) { // Jika sudah di-scroll lebih dari 200px
+                    scrollToTopButton.style.display = 'flex';
+                } else {
+                    scrollToTopButton.style.display = 'none';
+                }
+            });
+        </script>
     </footer>
+
 
 </body>
 

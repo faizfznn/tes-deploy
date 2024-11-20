@@ -304,6 +304,10 @@ footer .section__container {
     padding: 5rem 1rem;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 main.section__container {
     max-width: 800px;
     margin: auto;
