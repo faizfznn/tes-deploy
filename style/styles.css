@@ -242,6 +242,55 @@ nav {
     color: var(--extra-light);
 }
 
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+input {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background: #fff;
+}
+
+input:focus {
+    border-color: #8080D7;
+    /* Highlight input on focus */
+}
+
+input:focus+label,
+input:not(:placeholder-shown)+label {
+    top: -10px;
+    font-size: 20px;
+    color: #00;
+    /* Highlight label */
+}
+
 .booking__container {
     position: absolute;
     bottom: -5rem;
