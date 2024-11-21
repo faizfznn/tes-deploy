@@ -19,7 +19,7 @@
 <body>
 
     <nav>
-        <img class="logo" src="../assets/LOGO.png" alt="Logo FILKOMreserV" onclick="location.reload();" onclick="window.location.href='login.html'">
+        <img class="logo" src="../assets/LOGO.png" alt="Logo FILKOMreserV" onclick="location.reload();" onclick="window.location.href='index.html'">
 
         <ul class="nav__links">
             <li class="link"><a href="index.html">Beranda</a></li>
@@ -41,39 +41,57 @@
                 <p>Reservasi ruangan di FILKOM UB secara cepat, efisien, dan terorganisir dengan FILKOMreserV.</p>
             </div>
             <div class="booking__container">
-                <form>
+                <form id="bookingForm">
                     <div class="form__group">
                         <div class="input__group">
-                            <input type="text" />
+                            <input type="text" id="roomName" />
                             <label>Ruangan</label>
                         </div>
                         <p>Masukkan nama atau lokasi ruangan</p>
                     </div>
                     <div class="form__group">
                         <div class="input__group">
-                            <input type="datetime-local" />
+                            <input type="datetime-local" id="startDate" />
                             <label>Tanggal Peminjaman</label>
                         </div>
                         <p>Pilih tanggal dan waktu peminjaman</p>
                     </div>
                     <div class="form__group">
                         <div class="input__group">
-                            <input type="datetime-local" />
+                            <input type="datetime-local" id="endDate" />
                             <label>Tanggal Selesai</label>
                         </div>
                         <p>Pilih tanggal selesai dan waktu selesai peminjaman</p>
                     </div>
                     <div class="form__group">
                         <div class="input__group">
-                            <input type="text" />
+                            <input type="text" id="capacity" />
                             <label>Kapasitas</label>
                         </div>
                         <p>Tentukan jumlah orang</p>
                     </div>
-                    <script src="../script/script.js"></script>
-
                 </form>
-                <button class="btn"><i class="ri-search-line" onclick="window.location.href='list.html'"></i></button>
+                <button type="button" class="btn" onclick="submitForm()">
+                    <i class="ri-search-line"></i>
+                </button>
+
+                <script>
+                    function submitForm() {
+                        const roomName = document.getElementById('roomName').value;
+                        const startDate = document.getElementById('startDate').value;
+                        const endDate = document.getElementById('endDate').value;
+                        const capacity = document.getElementById('capacity').value;
+
+                        // Simpan data ke localStorage
+                        localStorage.setItem('roomName', roomName);
+                        localStorage.setItem('startDate', startDate);
+                        localStorage.setItem('endDate', endDate);
+                        localStorage.setItem('capacity', capacity);
+
+                        // Arahkan ke halaman list
+                        window.location.href = 'list.html';
+                    }
+                </script>
             </div>
         </div>
 

@@ -8,6 +8,73 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/list.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dateElement = document.getElementById("current-date");
+            const timeElement = document.getElementById("current-time");
+
+            // Ambil tanggal dan waktu saat ini
+            const now = new Date();
+
+            // Format tanggal
+            const formattedDate = new Intl.DateTimeFormat("id-ID", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }).format(now);
+
+            // Format waktu
+            const formattedTime = now.toLocaleTimeString("id-ID", {
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+
+            // Set ke elemen HTML
+            dateElement.textContent = formattedDate;
+            timeElement.textContent = formattedTime;
+        });
+
+        function fetchAvailableRooms() {
+            const startDate = localStorage.getItem('startDate');
+            const startTime = new Date(startDate).toLocaleTimeString('id-ID', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            const requestDate = new Date(startDate).toISOString().split('T')[0]; // Mengambil tanggal dalam format YYYY-MM-DD
+
+            fetch(`http://localhost:8000?date=${requestDate}&time=${startTime}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No available rooms');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const roomContainer = document.querySelector('.container'); // Sesuaikan dengan elemen yang ada
+                    roomContainer.innerHTML = ''; // Kosongkan isi sebelumnya
+
+                    data.forEach(room => {
+                        const roomCard = document.createElement('div');
+                        roomCard.classList.add('room-card', 'shadow-sm', 'p-4', 'rounded', 'mb-3');
+                        roomCard.innerHTML = `
+                            <h3 class="mb-2">${room.name}</h3>
+                            <p class="mb-1 text-muted">Tersedia jam <strong>${room.availableTimes.join(', ')}</strong></p>
+                            <div class="status">
+                                <span class="badge badge-success">Tersedia</span>
+                            </div>
+                        `;
+                        roomContainer.appendChild(roomCard);
+                    });
+                })
+                .catch(error => {
+                    const roomContainer = document.querySelector('.container'); // Sesuaikan dengan elemen yang ada
+                    roomContainer.innerHTML = '<p>Tidak ada ruangan yang tersedia pada waktu tersebut.</p>';
+                    console.error('Error fetching rooms:', error);
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchAvailableRooms);
+    </script>
 </head>
 
 <body>
@@ -28,7 +95,32 @@
     </nav>
     <div class="container mt-5">
         <h1 class="text-center mb-4">List Ruangan yang Tersedia</h1>
-        <p class="text-center text-muted">Pada tanggal <strong>12 Januari 2024</strong> jam <strong>12.00</strong></p>
+        <p class="text-center text-muted" id="bookingDetails"></p>
+
+        <script>
+            // Ambil data dari localStorage
+            const roomName = localStorage.getItem('roomName');
+            const startDate = new Date(localStorage.getItem('startDate'));
+            const endDate = new Date(localStorage.getItem('endDate'));
+
+            // Format tanggal dan waktu
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            const formattedStartDate = startDate.toLocaleDateString('id-ID', options) + ' jam ' + startDate.toLocaleTimeString('id-ID', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            const formattedEndDate = endDate.toLocaleDateString('id-ID', options) + ' jam ' + endDate.toLocaleTimeString('id-ID', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            // Tampilkan detail peminjaman
+            document.getElementById('bookingDetails').innerHTML = `Pada tanggal <strong>${formattedStartDate}</strong>`;
+        </script>
 
         <div class="room-card shadow-sm p-4 rounded mb-3" onclick="window.location.href='tanggal.html'">
             <h3 class="mb-2">GKM 4.1</h3>
@@ -40,7 +132,7 @@
 
         <div class="room-card shadow-sm p-4 rounded mb-3" onclick="window.location.href='login.html'">
             <h3 class="mb-2">Gedung F Ruang 3</h3>
-            <p class="mb-1 text-muted">Tersedia jam <strong>14:00 - 18:00</strong></p>
+            <p class="mb -1 text-muted">Tersedia jam <strong>14:00 - 18:00</strong></p>
             <div class="status">
                 <span class="badge badge-success">Tersedia</span>
             </div>
