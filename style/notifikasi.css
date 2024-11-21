@@ -90,6 +90,37 @@ body {
     background-color: var(--text-light);
 }
 
+/* Gaya untuk status diterima */
+.notifikasi__card.diterima {
+    border-left: 5px solid green;
+    background-color: #e1f7e1;
+}
+
+.status-accepted {
+    color: green;
+}
+
+/* Gaya untuk status proses */
+.notifikasi__card.proses {
+    border-left: 5px solid orange;
+    background-color: #fff3cd;
+}
+
+.status-processing {
+    color: orange;
+}
+
+/* Gaya untuk status ditolak */
+.notifikasi__card.ditolak {
+    border-left: 5px solid red;
+    background-color: #f8d7da;
+}
+
+.status-rejected {
+    color: red;
+}
+
+
 footer .section__container {
     max-width: var(--max-width);
     margin: auto;

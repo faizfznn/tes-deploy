@@ -10,13 +10,16 @@
     <link rel="icon" type="image/png" href="../assets/LOGO.png">
     <script src="../script/script.js"></script>
 
+
+    <!-- <script src="../script/verifikasi.js"></script> -->
+
     <title>FILKOMreserV | Sistem Peminjaman Ruangan</title>
 </head>
 
 <body>
 
     <nav>
-        <img class="logo" src="../assets/LOGO.png" alt="Logo FILKOMreserV" onclick="location.reload();" onclick="window.location.href='index.html'">
+        <img class="logo" src="../assets/LOGO.png" alt="Logo FILKOMreserV" onclick="location.reload();" onclick="window.location.href='login.html'">
 
         <ul class="nav__links">
             <li class="link"><a href="index.html">Beranda</a></li>
@@ -38,61 +41,81 @@
                 <p>Reservasi ruangan di FILKOM UB secara cepat, efisien, dan terorganisir dengan FILKOMreserV.</p>
             </div>
             <div class="booking__container">
-                <form id="bookingForm">
+                <form onsubmit="return false;"> <!-- Menggunakan onsubmit untuk mencegah reload halaman -->
                     <div class="form__group">
                         <div class="input__group">
-                            <input type="text" id="roomName" />
-                            <label>Ruangan</label>
-                        </div>
-                        <p>Masukkan nama atau lokasi ruangan</p>
-                    </div>
-                    <div class="form__group">
-                        <div class="input__group">
-                            <input type="datetime-local" id="startDate" />
+                            <input type="date" id="date-picker" />
                             <label>Tanggal Peminjaman</label>
                         </div>
-                        <p>Pilih tanggal dan waktu peminjaman</p>
+                        <p>Pilih tanggal peminjaman</p>
                     </div>
                     <div class="form__group">
                         <div class="input__group">
-                            <input type="datetime-local" id="endDate" />
-                            <label>Tanggal Selesai</label>
+                            <input type="time" id="start-time-picker" />
+                            <label>Waktu Mulai</label>
                         </div>
-                        <p>Pilih tanggal selesai dan waktu selesai peminjaman</p>
+                        <p>Pilih waktu mulai peminjaman</p>
                     </div>
                     <div class="form__group">
                         <div class="input__group">
-                            <input type="text" id="capacity" />
+                            <input type="time" id="end-time-picker" />
+                            <label>Waktu Selesai</label>
+                        </div>
+                        <p>Pilih waktu selesai peminjaman</p>
+                    </div>
+                    <div class="form__group">
+                        <div class="input__group">
+                            <input type="number" id="capacity" min="1" />
                             <label>Kapasitas</label>
                         </div>
                         <p>Tentukan jumlah orang</p>
                     </div>
+                    <!-- Tombol pencarian -->
+                    <!-- <button class="btn" onclick="searchRooms()">Cari Ruangan</button> -->
                 </form>
-                <button type="button" class="btn" onclick="submitForm()">
-                    <i class="ri-search-line"></i>
-                </button>
-
-                <script>
-                    function submitForm() {
-                        const roomName = document.getElementById('roomName').value;
-                        const startDate = document.getElementById('startDate').value;
-                        const endDate = document.getElementById('endDate').value;
-                        const capacity = document.getElementById('capacity').value;
-
-                        // Simpan data ke localStorage
-                        localStorage.setItem('roomName', roomName);
-                        localStorage.setItem('startDate', startDate);
-                        localStorage.setItem('endDate', endDate);
-                        localStorage.setItem('capacity', capacity);
-
-                        // Arahkan ke halaman list
-                        window.location.href = 'list.html';
-                    }
-                </script>
+                <button class="btn"><i class="ri-search-line" onclick="searchRooms()"></i></button>
             </div>
         </div>
-
     </header>
+    
+    <script>
+        function searchRooms() {
+            // Mengambil nilai dari input form
+            const date = document.getElementById('date-picker').value;
+            const startTime = document.getElementById('start-time-picker').value;
+            const endTime = document.getElementById('end-time-picker').value;
+            const capacity = document.getElementById('capacity').value.trim();
+    
+            // Membuat URL untuk mencari ruangan berdasarkan parameter yang dimasukkan
+            let url = 'list.html?';
+    
+            if (date) {
+                url += `date=${encodeURIComponent(date)}&`;
+            }
+    
+            if (startTime) {
+                url += `startTime=${encodeURIComponent(startTime)}&`;
+            }
+    
+            if (endTime) {
+                url += `endTime=${encodeURIComponent(endTime)}&`;
+            }
+    
+            if (capacity) {
+                url += `capacity=${encodeURIComponent(capacity)}&`;
+            }
+    
+            // Menghapus tanda '&' terakhir yang tidak diperlukan
+            url = url.slice(0, -1);
+    
+            // Mengarahkan ke halaman list.html dengan query string yang telah dibangun
+            window.location.href = url;
+        }
+    </script>
+    
+    
+
+    <button class="btn"><i class="ri-search-line" onclick="window.location.href='list.html'"></i></button>
 
     <section class="section__container popular__container">
         <p></p>

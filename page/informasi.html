@@ -29,23 +29,19 @@
     <main class="section__container">
         <div class="informasi__ruangan">
             <h1>Informasi Ruangan</h1>
-            <img src="../../assets/adver.webp" alt="Foto Ruangan" class="ruangan__image">
+            <!-- Foto Ruangan -->
+            <img id="ruangan-image" src="../../assets/adver.webp" alt="Foto Ruangan" class="ruangan__image">
             <div class="ruangan__detail">
-                <h2>Auditorium Algoritma G2</h2>
-                <p><strong>Kapasitas:</strong> 300+ orang</p>
+                <!-- Nama Ruangan -->
+                <h2 id="ruangan-name">Loading...</h2>
+                <p><strong>Kapasitas:</strong> <span id="ruangan-capacity">Loading...</span></p>
                 <p><strong>Fasilitas:</strong></p>
-                <ul>
-                    <li>Videotron</li>
-                    <li>Ac Central</li>
-                    <li>Kursi</li>
-                    <li>Lampu Sorot</li>
-                    <li>Audio</li>
-                    <li>Panggung</li>
+                <ul id="ruangan-facilities">
+                    <!-- Fasilitas akan dimuat di sini -->
                 </ul>
                 <p><strong>Riwayat Penggunaan:</strong></p>
-                <ul>
-                    <li>Schotival 2024</li>
-                    <li>Hology 7.0</li>
+                <ul id="ruangan-usage-history">
+                    <!-- Riwayat penggunaan akan dimuat di sini -->
                 </ul>
             </div>
         </div>
@@ -76,6 +72,67 @@
             Copyright © 2024 FILKOMreserV.
         </div>
     </footer>
+
+    <script>
+        // Fungsi untuk membaca parameter dari URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param); // Mengambil nilai dari parameter URL
+        }
+    
+        // Fungsi untuk mengambil informasi ruangan dari API berdasarkan ID
+        async function getRoomInfo() {
+            try {
+                // Ambil ID dari parameter URL
+                const roomId = getQueryParam('id');
+                if (!roomId) {
+                    alert('ID ruangan tidak ditemukan di URL.');
+                    return;
+                }
+    
+                // Fetch data dari API menggunakan ID ruangan
+                const response = await fetch(`http://localhost:8080/rooms/${roomId}`);
+                if (!response.ok) {
+                    throw new Error('Gagal mengambil data ruangan.');
+                }
+    
+                const room = await response.json();
+    
+                // Mengupdate tampilan dengan data yang didapatkan dari API
+                document.getElementById("ruangan-name").textContent = room.name;
+                document.getElementById("ruangan-capacity").textContent = room.capacity + ' orang';
+    
+                // Menampilkan fasilitas ruangan
+                const facilitiesList = document.getElementById("ruangan-facilities");
+                facilitiesList.innerHTML = ''; // Bersihkan konten sebelumnya
+                room.facilities.forEach(facility => {
+                    const li = document.createElement("li");
+                    li.textContent = facility;
+                    facilitiesList.appendChild(li);
+                });
+    
+                // Menampilkan riwayat penggunaan ruangan
+                const usageHistoryList = document.getElementById("ruangan-usage-history");
+                usageHistoryList.innerHTML = ''; // Bersihkan konten sebelumnya
+                room.usage_history.forEach(history => {
+                    const li = document.createElement("li");
+                    li.textContent = history;
+                    usageHistoryList.appendChild(li);
+                });
+    
+                // Menampilkan gambar ruangan
+                document.getElementById("ruangan-image").src = room.image_url || '../../assets/adver.webp';
+            } catch (error) {
+                console.error('Error fetching room data:', error);
+                alert('Tidak dapat memuat informasi ruangan.');
+            }
+        }
+    
+        // Panggil fungsi untuk mengambil data ketika halaman dimuat
+        window.onload = getRoomInfo;
+    </script>
+    
+    
 </body>
 
 </html>

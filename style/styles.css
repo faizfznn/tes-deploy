@@ -388,6 +388,12 @@ input:not(:placeholder-shown)+label {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
+.popular__card img {
+    width: 700px;
+    height: 210px;
+    object-fit: cover; /* This ensures the image is resized while maintaining its aspect ratio */
+}
+
 .popular__content {
     padding: 1rem;
 }
