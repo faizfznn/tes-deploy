@@ -41,7 +41,8 @@
                 <p>Reservasi ruangan di FILKOM UB secara cepat, efisien, dan terorganisir dengan FILKOMreserV.</p>
             </div>
             <div class="booking__container">
-                <form onsubmit="return false;"> <!-- Menggunakan onsubmit untuk mencegah reload halaman -->
+                <form onsubmit="return false;">
+                    <!-- Menggunakan onsubmit untuk mencegah reload halaman -->
                     <div class="form__group">
                         <div class="input__group">
                             <input type="date" id="date-picker" />
@@ -70,14 +71,13 @@
                         </div>
                         <p>Tentukan jumlah orang</p>
                     </div>
-                    <!-- Tombol pencarian -->
-                    <!-- <button class="btn" onclick="searchRooms()">Cari Ruangan</button> -->
+
                 </form>
                 <button class="btn"><i class="ri-search-line" onclick="searchRooms()"></i></button>
             </div>
         </div>
     </header>
-    
+
     <script>
         function searchRooms() {
             // Mengambil nilai dari input form
@@ -85,37 +85,33 @@
             const startTime = document.getElementById('start-time-picker').value;
             const endTime = document.getElementById('end-time-picker').value;
             const capacity = document.getElementById('capacity').value.trim();
-    
+
             // Membuat URL untuk mencari ruangan berdasarkan parameter yang dimasukkan
             let url = 'list.html?';
-    
+
             if (date) {
                 url += `date=${encodeURIComponent(date)}&`;
             }
-    
+
             if (startTime) {
                 url += `startTime=${encodeURIComponent(startTime)}&`;
             }
-    
+
             if (endTime) {
                 url += `endTime=${encodeURIComponent(endTime)}&`;
             }
-    
+
             if (capacity) {
                 url += `capacity=${encodeURIComponent(capacity)}&`;
             }
-    
+
             // Menghapus tanda '&' terakhir yang tidak diperlukan
             url = url.slice(0, -1);
-    
+
             // Mengarahkan ke halaman list.html dengan query string yang telah dibangun
             window.location.href = url;
         }
     </script>
-    
-    
-
-    <button class="btn"><i class="ri-search-line" onclick="window.location.href='list.html'"></i></button>
 
     <section class="section__container popular__container">
         <p></p>
