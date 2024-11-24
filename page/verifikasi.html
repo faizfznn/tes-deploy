@@ -1,181 +1,148 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/verifikasi.css" />
     <title>Verifikasi Peminjaman | FILKOMreserV</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- Navbar -->
     <nav>
-      <img
-        class="logo"
-        src="../../assets/LOGO.png"
-        alt="Logo FILKOMreserV"
-        onclick="window.location.href='index.html'"
-      />
+        <img class="logo" src="../assets/LOGO.png" alt="Logo FILKOMreserV" onclick="window.location.href='../index.html'" />
 
-      <ul class="nav__links">
-        <li class="link"><a href="index.html">Beranda</a></li>
-        <li class="link"><a href="index.html#booklet">Buku Panduan</a></li>
-        <li class="link"><a href="#footer">Kontak Kami</a></li>
-        <li class="link">
-          <a href="notifikasi.html" style="display: flex; align-items: center">
-            <i
-              class="ri-notification-3-line"
-              style="font-size: 1.5rem; margin-right: 5px"
-            ></i>
-            Notifikasi
-          </a>
-        </li>
-        <button
-          class="btn"
-          style="color: var(--white); background-color: var(--primary-color)"
-          onclick="window.location.href='login.html'"
-        >
+        <ul class="nav__links">
+            <li class="link"><a href="../index.html">Beranda</a></li>
+            <li class="link"><a href="../index.html#booklet">Buku Panduan</a></li>
+            <li class="link"><a href="#footer">Kontak Kami</a></li>
+            <li class="link">
+                <a href="notifikasi.html" style="display: flex; align-items: center">
+                    <i class="ri-notification-3-line" style="font-size: 1.5rem; margin-right: 5px"></i> Notifikasi
+                </a>
+            </li>
+            <button class="btn" style="color: var(--white); background-color: var(--primary-color)" onclick="window.location.href='login.html'">
           Login
         </button>
-      </ul>
+        </ul>
     </nav>
 
     <!-- Konten Utama -->
     <main class="section__container">
-      <div class="verifikasi__container">
-        <h1>Verifikasi Peminjaman</h1>
-        <p>
-          Unggah berkas pendukung untuk melanjutkan proses verifikasi peminjaman
-          ruangan.
-        </p>
-        <form class="verifikasi__form" id="verifikasiForm">
-          <div class="form-group">
-            <label for="fileUpload">Unggah Berkas Pendukung:</label>
-            <input
-              type="file"
-              id="fileUpload"
-              name="fileUpload"
-              class="form-control"
-            />
-          </div>
-          <div class="form-group">
-            <label for="deskripsi">Deskripsi Berkas:</label>
-            <textarea
-              id="deskripsi"
-              name="deskripsi"
-              rows="4"
-              class="form-control"
-              placeholder="Masukkan deskripsi berkas"
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Kirim Berkas</button>
-        </form>
-      </div>
+        <div class="verifikasi__container">
+            <h1>Verifikasi Peminjaman</h1>
+            <p>
+                Unggah berkas pendukung untuk melanjutkan proses verifikasi peminjaman ruangan.
+            </p>
+            <form class="verifikasi__form" id="verifikasiForm">
+                <div class="form-group">
+                    <label for="fileUpload">Unggah Berkas Pendukung:</label>
+                    <input type="file" id="fileUpload" name="fileUpload" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi Berkas:</label>
+                    <textarea id="deskripsi" name="deskripsi" rows="4" class="form-control" placeholder="Masukkan deskripsi berkas"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Kirim Berkas</button>
+            </form>
+        </div>
     </main>
 
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay" style="display: none">
-      <div class="loading-spinner"></div>
-      <p>Memproses, harap tunggu...</p>
+        <div class="loading-spinner"></div>
+        <p>Memproses, harap tunggu...</p>
     </div>
 
     <!-- Footer -->
     <footer class="footer" id="footer">
-      <div class="section__container footer__container">
-        <div class="footer__col">
-          <h3>FILKOMreserV</h3>
-          <p>
-            Sistem yang memudahkan mahasiswa dan dosen untuk memesan ruangan di
-            Fakultas Ilmu Komputer.
-          </p>
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h3>FILKOMreserV</h3>
+                <p>
+                    Sistem yang memudahkan mahasiswa dan dosen untuk memesan ruangan di Fakultas Ilmu Komputer.
+                </p>
+            </div>
+            <div class="footer__col">
+                <h4>Informasi Kontak</h4>
+                <p>
+                    Jl. Veteran, Ketawanggede, Lowokwaru, Kota Malang, Jawa Timur, Indonesia - 65145
+                </p>
+            </div>
         </div>
-        <div class="footer__col">
-          <h4>Informasi Kontak</h4>
-          <p>
-            Jl. Veteran, Ketawanggede, Lowokwaru, Kota Malang, Jawa Timur,
-            Indonesia - 65145
-          </p>
-        </div>
-      </div>
-      <div class="footer__bar">Copyright © 2024 FILKOMreserV.</div>
+        <div class="footer__bar">Copyright © 2024 FILKOMreserV.</div>
     </footer>
 
     <script>
-      // Ambil data dari URL query string
-      // Ambil data dari URL query string
-      const newUrl = new URL(window.location.href);
-      newUrl.searchParams.set("tanggal", tanggal);
-      newUrl.searchParams.set("checkin", checkin);
-      newUrl.searchParams.set("checkout", checkout);
+        // Ambil data dari URL query string
+        // Ambil data dari URL query string
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set("tanggal", tanggal);
+        newUrl.searchParams.set("checkin", checkin);
+        newUrl.searchParams.set("checkout", checkout);
 
-      // Mengganti URL tanpa memuat ulang halaman
-      window.history.replaceState(null, "", newUrl);
+        // Mengganti URL tanpa memuat ulang halaman
+        window.history.replaceState(null, "", newUrl);
 
-      // Tangani form submit
-      const verifikasiForm = document.getElementById("verifikasiForm");
-      verifikasiForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Mencegah pengiriman form default
+        // Tangani form submit
+        const verifikasiForm = document.getElementById("verifikasiForm");
+        verifikasiForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah pengiriman form default
 
-        // Tampilkan overlay
-        const loadingOverlay = document.getElementById("loadingOverlay");
-        loadingOverlay.style.display = "flex";
+            // Tampilkan overlay
+            const loadingOverlay = document.getElementById("loadingOverlay");
+            loadingOverlay.style.display = "flex";
 
-        // Ambil data dari form
-        const fileUpload = document.getElementById("fileUpload").files[0];
-        const deskripsi = document.getElementById("deskripsi").value;
+            // Ambil data dari form
+            const fileUpload = document.getElementById("fileUpload").files[0];
+            const deskripsi = document.getElementById("deskripsi").value;
 
-        // Validasi input
-        if (!fileUpload || !deskripsi.trim()) {
-          alert("Harap unggah berkas dan isi deskripsi.");
-          loadingOverlay.style.display = "none";
-          return;
-        }
+            // Validasi input
+            if (!fileUpload || !deskripsi.trim()) {
+                alert("Harap unggah berkas dan isi deskripsi.");
+                loadingOverlay.style.display = "none";
+                return;
+            }
 
-        // Siapkan data untuk dikirim ke server
-        const formData = new FormData();
-        formData.append("file", fileUpload);
-        formData.append("deskripsi", deskripsi);
-        formData.append("tanggal", tanggal);
-        formData.append("checkin", checkin);
-        formData.append("checkout", checkout);
+            // Siapkan data untuk dikirim ke server
+            const formData = new FormData();
+            formData.append("file", fileUpload);
+            formData.append("deskripsi", deskripsi);
+            formData.append("tanggal", tanggal);
+            formData.append("checkin", checkin);
+            formData.append("checkout", checkout);
 
-        // Simulasikan proses loading dengan pengiriman data
-        setTimeout(() => {
-          // Lakukan POST ke server
-          fetch("http://localhost:8080/notifications", {
-            // Sesuaikan URL server
-            method: "POST",
-            body: formData,
-          })
-            .then((response) => {
-              if (response.ok) {
-                return response.json();
-              }
-              throw new Error("Gagal mengirim data");
-            })
-            .then((data) => {
-              console.log("Berhasil dikirim:", data);
-              alert("Peminjaman berhasil diproses!");
-              loadingOverlay.style.display = "none"; // Sembunyikan overlay
-              window.location.href = "index.html"; // Redirect ke halaman home
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("Terjadi kesalahan saat mengirim data.");
-              loadingOverlay.style.display = "none"; // Sembunyikan overlay
-            });
-        }, 1000); // Durasi loading 1 detik
-      });
+            // Simulasikan proses loading dengan pengiriman data
+            setTimeout(() => {
+                // Lakukan POST ke server
+                fetch("http://localhost:8080/notifications", {
+                        // Sesuaikan URL server
+                        method: "POST",
+                        body: formData,
+                    })
+                    .then((response) => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error("Gagal mengirim data");
+                    })
+                    .then((data) => {
+                        console.log("Berhasil dikirim:", data);
+                        alert("Peminjaman berhasil diproses!");
+                        loadingOverlay.style.display = "none"; // Sembunyikan overlay
+                        window.location.href = "../index.html"; // Redirect ke halaman home
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                        alert("Terjadi kesalahan saat mengirim data.");
+                        loadingOverlay.style.display = "none"; // Sembunyikan overlay
+                    });
+            }, 1000); // Durasi loading 1 detik
+        });
     </script>
-  </body>
+</body>
+
 </html>

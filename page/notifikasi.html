@@ -12,10 +12,10 @@
 
 <body>
     <nav>
-        <img class="logo" src="../../assets/LOGO.png" alt="Logo FILKOMreserV" onclick="window.location.href='index.html'">
+        <img class="logo" src="../assets/LOGO.png" alt="Logo FILKOMreserV" onclick="window.location.href='../index.html'" />
         <ul class="nav__links">
-            <li class="link"><a href="index.html">Beranda</a></li>
-            <li class="link"><a href="index.html#booklet">Buku Panduan</a></li>
+            <li class="link"><a href="../index.html">Beranda</a></li>
+            <li class="link"><a href="../index.html#booklet">Buku Panduan</a></li>
             <li class="link"><a href="#footer">Kontak Kami</a></li>
             <li class="link">
                 <a href="notifikasi.html" style="display: flex; align-items: center;">
@@ -28,7 +28,8 @@
 
     <main class="section__container">
         <h1 class="notif-header">Notifikasi Peminjaman</h1>
-        <div id="notif-container"></div> <!-- Container untuk menampilkan notifikasi -->
+        <div id="notif-container"></div>
+        <!-- Container untuk menampilkan notifikasi -->
     </main>
 
     <footer class="footer" id="footer">
@@ -60,20 +61,20 @@
     <script>
         // Function to fetch notifications and display them
         function fetchNotifications() {
-            fetch('http://localhost:8080/notifications')  // URL API untuk mengambil notifikasi
+            fetch('http://localhost:8080/notifications') // URL API untuk mengambil notifikasi
                 .then(response => response.json())
                 .then(data => {
-                    const notifContainer = document.getElementById('notif-container');
-                    notifContainer.innerHTML = ''; // Clear the container before adding new notifications
-                    
-                    data.forEach(notification => {
-                        const notifCard = document.createElement('div');
-                        notifCard.classList.add('notifikasi__card');
+                        const notifContainer = document.getElementById('notif-container');
+                        notifContainer.innerHTML = ''; // Clear the container before adding new notifications
 
-                        // Menentukan class dan judul berdasarkan status
-                        if (notification.status === 'diterima') {
-                            notifCard.classList.add('diterima');
-                            notifCard.innerHTML = `
+                        data.forEach(notification => {
+                                    const notifCard = document.createElement('div');
+                                    notifCard.classList.add('notifikasi__card');
+
+                                    // Menentukan class dan judul berdasarkan status
+                                    if (notification.status === 'diterima') {
+                                        notifCard.classList.add('diterima');
+                                        notifCard.innerHTML = `
                                 <h3>Peminjaman Diterima</h3>
                                 <p>Ruangan: ${notification.room_id}, ${notification.borrow_date}, ${notification.start_time} - ${notification.end_time}</p>
                                 <p>Status: <span class="status-accepted">Diterima</span></p>
